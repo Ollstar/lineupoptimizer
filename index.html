@@ -18,7 +18,7 @@
         margin: 5px;
         overflow-y: auto;
         box-shadow: 5px 0 5px -5px black inset;
-        max-height: 80vh;
+        max-height: 70vh;
       }
       table {
         width: 100%;
@@ -57,9 +57,14 @@
   </head>
   <body>
     <h1>NBA Lineup Optimizer</h1>
-    <div class="inputContainer">
+    <form id="contestForm">
       <label for="contestId">Enter DraftKings Contest ID:</label>
-      <input type="text" value="85417" id="contestId" name="contestId" />
+      <input type="text" value="84787" id="contestId" name="contestId" />
+      <button type="submit">Update Players</button>
+    </form>
+    <div id="totals">
+      <div id="totalSalary"></div>
+      <div id="totalPoints"></div>
     </div>
     <div class="container">
       <div>
@@ -77,11 +82,8 @@
           <tbody id="playersTbody"></tbody>
         </table>
       </div>
-      <div>`
-        <div id="totals">
-          <div id="totalSalary"></div>
-          <div id="totalPoints"></div>
-        </div>
+      <div>
+    
         <h2>Optimal Lineup</h2>
         <table id="lineupTable">
           <thead>
@@ -101,16 +103,14 @@
     <button id="calculateLineup">Calculate Optimal Lineup</button>
 
     <script>
-      async function fetchPlayers() {
+      async function fetchPlayers(contestId) {
         const response = await fetch("/api/players");
         const players = await response.json();
         return players;
       }
 
       async function fetchOptimalLineup(contestId) {
-        const response = await fetch(
-          `/api/lineups`
-        );
+        const response = await fetch(`/api/lineups?contestId=${contestId}`);
         const lineups = await response.json();
         return lineups;
       }
@@ -146,7 +146,7 @@
         .getElementById("calculateLineup")
         .addEventListener("click", async () => {
           const contestId =
-            document.getElementById("contestId").value || "84517";
+            document.getElementById("contestId").value || "86402";
           const result = await fetchOptimalLineup(contestId); // Add 'await' here
           console.log(result);
 
@@ -159,8 +159,15 @@
           }
         });
       (async () => {
-        const players = await fetchPlayers();
-        displayPlayers(players, "playersTbody");
+        document
+          .getElementById("contestForm")
+          .addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent the default form submission behavior
+            const contestId =
+              document.getElementById("contestId").value || "84787";
+            const players = await fetchPlayers(contestId);
+            displayPlayers(players, "playersTbody");
+          });
       })();
     </script>
   </body>

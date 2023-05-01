@@ -136,7 +136,18 @@ function calculateOptimalLineup(players) {
         })),
         bnds: { type: glpk.GLP_LO, ub: null, lb: 3 },
       },
-
+      {
+        name: "maxCenterPlayers",
+        vars: sortedPlayers.map((_, i) => ({
+          name: `x${i}`,
+          coef:
+            sortedPlayers[i].position1 === "C" ||
+            sortedPlayers[i].position2 === "C"
+              ? 1
+              : 0,
+        })),
+        bnds: { type: glpk.GLP_UP, ub: 2, lb: null },
+      },
       {
         name: "lineupSize",
         vars: sortedPlayers.map((_, i) => ({
