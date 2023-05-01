@@ -20,8 +20,8 @@ The NBA Lineup Optimizer is a web application that allows users to calculate the
 4. Install the required dependencies:
    npm install
 5. Create a `.env` file in the project root directory with the following content:
-   API_URL=your_api_url_here
-   Replace `your_api_url_here` with the appropriate API URL.
+   WEB_URL=your_website_url_here
+   Replace `your_website_url_here` with the URL of your website. This is required for the application to work properly. (Use local)
 6. Start the server:
    npm start
 7. Open your web browser and visit `http://localhost:3000`. The application should now be running.
