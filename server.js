@@ -5,7 +5,7 @@ const calculateOptimalLineup = require("./lineupoptimizer.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_URL = process.env.API_URL; // Add this line
+const WEB_URL = process.env.WEB_URL; // Add this line
 
 app.use(express.static("public"));
 app.get("/", (req, res) => {
@@ -16,7 +16,7 @@ app.get("/api/lineups", async (req, res) => {
     console.log(req.query.contestId);
     const contestId = req.query.contestId || "86402";
     const playersResponse = await axios.get(
-      `${API_URL}/api/players?contestId=${contestId}` // Update this line
+      `${WEB_URL}/api/players?contestId=${contestId}` // Update this line
     );
     const players = playersResponse.data;
     const lineups = calculateOptimalLineup(players);
