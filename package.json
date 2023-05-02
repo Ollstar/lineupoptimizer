@@ -15,5 +15,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "glpk.js": "^4.0.1"
+  },
+  "devDependencies": {
+    "@vercel/node": "^2.14.0"
   }
 }

@@ -1,11 +1,11 @@
-require("dotenv").config(); // Add this line to the top of the file
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const calculateOptimalLineup = require("./lineupoptimizer.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const WEB_URL = process.env.WEB_URL; // Add this line
+const WEB_URL = process.env.WEB_URL; 
 
 app.use(express.static("public"));
 app.get("/", (req, res) => {
@@ -16,7 +16,7 @@ app.get("/api/lineups", async (req, res) => {
     console.log(req.query.contestId);
     const contestId = req.query.contestId || "86402";
     const playersResponse = await axios.get(
-      `${WEB_URL}/api/players?contestId=${contestId}` // Update this line
+      `${WEB_URL}/api/players?contestId=${contestId}` 
     );
     const players = playersResponse.data;
     const lineups = calculateOptimalLineup(players);
@@ -29,7 +29,7 @@ app.get("/api/lineups", async (req, res) => {
 
 app.get("/api/players", async (req, res) => {
   try {
-    const contestId = req.query.contestId || "86402"; // Updated line to handle the contest ID
+    const contestId = req.query.contestId || "86402"; 
     const response = await axios.get(
       `https://api.draftkings.com/draftgroups/v1/draftgroups/${contestId}/draftables`
     );
@@ -71,8 +71,6 @@ app.get("/api/players", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-// rest of your server setup code goes here
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
