@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "cp node_modules/glpk.js/dist/glpk.wasm out/"
+    "vercel-build": "cp node_modules/glpk.js/dist/glpk.wasm ./.next/static/"
   },
   
   "dependencies": {
