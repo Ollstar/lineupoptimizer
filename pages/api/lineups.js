@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as glpk from 'glpk.js';
 
 export default async function handler(req, res) {
   try {
