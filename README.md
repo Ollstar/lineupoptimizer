@@ -14,12 +14,12 @@ The NBA Lineup Optimizer is a web application that allows users to calculate the
 
 1. Install [Node.js](https://nodejs.org/en/) if you haven't already.
 2. Clone the repository:
-   git clone https://github.com/yourusername/nba-lineup-optimizer.git
+   git clone https://github.com/Ollstar/lineupoptimizer.git
 3. Navigate to the project directory:
-   cd nba-lineup-optimizer
+   cd lineupoptimzer
 4. Install the required dependencies:
    npm install
-5. Create a `.env` file in the project root directory with the following content:
+5. Edit the `.env` file in the project root directory with the following content:
    WEB_URL=your_website_url_here
    Replace `your_website_url_here` with the URL of your website. This is required for the application to work properly. (Use local)
 6. Start the server:
