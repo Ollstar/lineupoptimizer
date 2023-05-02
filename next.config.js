@@ -10,12 +10,8 @@ module.exports = {
         new CopyWebpackPlugin({
           patterns: [
             {
-              from: path.join(__dirname, 'node_modules', 'glpk.js', 'dist', 'glpk.js'),
-              to: path.join(__dirname, '.next', 'server', 'chunks', 'glpk.js'),
-            },
-            {
-              from: path.join(__dirname, 'node_modules', 'glpk.js', 'dist', 'glpk.wasm'),
-              to: path.join(__dirname, '.next', 'server', 'chunks', 'glpk.wasm'),
+              from: 'node_modules/glpk.js/dist/glpk.wasm',
+              to: 'static/wasm/glpk.wasm',
             },
           ],
         })
