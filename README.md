@@ -27,6 +27,7 @@ The NBA Lineup Optimizer is a web application that allows users to calculate the
 7. Open your web browser and visit `http://localhost:3000`. The application should now be running.
 
 ## Usage
+<img width="1416" alt="NBA Lineup Dashboard" src="https://user-images.githubusercontent.com/10384072/235786672-0a7f3723-271f-4bdc-9e3b-a4653fcf6290.png">
 
 1. Enter a DraftKings contest ID in the input field.
 2. Click the "Update Players" button to fetch the player data for the entered contest ID. The player data will be displayed in the "All Players" table.
