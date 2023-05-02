@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 };
 
-const GLPK = require("glpk.js");
+import GLPK from 'glpk.js';
 
 const glpk = GLPK();
 
