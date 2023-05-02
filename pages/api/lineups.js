@@ -1,7 +1,4 @@
 import axios from 'axios';
-import GLPK from 'glpk.js';
-
-
 
 export default async function handler(req, res) {
   try {
@@ -17,8 +14,8 @@ export default async function handler(req, res) {
   }
 };
 
+const GLPK = require("glpk.js");
 const glpk = GLPK();
-
 
 function calculateOptimalLineup(players) {
   const lineupSize = 8;
