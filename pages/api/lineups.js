@@ -1,6 +1,6 @@
 import axios from 'axios';
 import GLPK from 'glpk.js';
-import path from 'path';
+
 
 
 export default async function handler(req, res) {
@@ -17,13 +17,8 @@ export default async function handler(req, res) {
   }
 };
 
-// Get the wasm file's URL from the public folder
-const wasmURL = typeof window !== 'undefined' ? '/glpk.wasm' : path.resolve(process.cwd(), 'public/glpk.wasm');
+const glpk = GLPK();
 
-let glpk;
-(async () => {
-  glpk = await GLPK(wasmURL); // Pass the URL when initializing GLPK
-})();
 
 function calculateOptimalLineup(players) {
   const lineupSize = 8;
