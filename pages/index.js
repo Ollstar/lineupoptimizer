@@ -13,7 +13,7 @@ export default function Home() {
     };
 
     fetchPlayers();
-  }, []);
+  }, []); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
