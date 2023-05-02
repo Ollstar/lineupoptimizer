@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
 
-module.exports = nextConfig
+  webpack(config, options) {
+    // Add WebAssembly support
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;
