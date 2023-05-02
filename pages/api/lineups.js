@@ -17,9 +17,7 @@ export default async function handler(req, res) {
 
 import GLPK from 'glpk.js';
 
-const glpk = GLPK({
-  wasmBinaryFile: '/glpk/glpk.wasm'
-});
+const glpk = GLPK();
 
 function calculateOptimalLineup(players) {
   const lineupSize = 8;

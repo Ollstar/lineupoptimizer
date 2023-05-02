@@ -3,7 +3,4 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = {
-  reactStrictMode: true,
-  transpilePackages: ['glpk.js']
-}
+module.exports = nextConfig
