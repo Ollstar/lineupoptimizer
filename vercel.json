@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node-server"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/lineups",
+        "dest": "server.js"
+      },
+      {
+        "src": "/api/players",
+        "dest": "server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ],
+    "frameworks": {
+      "express": {
+        "version": "4.18.2"
+      }
+    }
+  }
+  
