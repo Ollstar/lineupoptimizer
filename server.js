@@ -33,6 +33,8 @@ app.get("/api/players", async (req, res) => {
     const response = await axios.get(
       `https://api.draftkings.com/draftgroups/v1/draftgroups/${contestId}/draftables`
     );
+    console.log('api/players response', response.data); // Add this line
+
     const playersByName = response.data.draftables.reduce((acc, player) => {
       const { firstName, lastName, position, salary, status } = player;
 

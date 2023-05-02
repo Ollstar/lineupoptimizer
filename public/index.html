@@ -105,12 +105,14 @@
     <script>
       async function fetchPlayers(contestId) {
         const response = await fetch("/api/players");
+        console.log('fetchPlayers response', response); // Add this line
         const players = await response.json();
         return players;
       }
 
       async function fetchOptimalLineup(contestId) {
         const response = await fetch(`/api/lineups?contestId=${contestId}`);
+        console.log('fetchOptimalLineup response', response); // Add this line
         const lineups = await response.json();
         return lineups;
       }
