@@ -20,5 +20,7 @@
       "src": "/(.*).(js|css)",
       "dest": "/$1.$2"
     }
-  ]
+  ],
+  "framework": "node"
+
 }
