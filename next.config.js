@@ -1,23 +1,27 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  // ...
   webpack: (config, { isServer }) => {
-    // Add the copy plugin to copy glpk.wasm file to the api directory during build time
+    // Only copy files on the server-side build
     if (isServer) {
       config.plugins.push(
         new CopyWebpackPlugin({
           patterns: [
             {
-              from: './node_modules/glpk.js/dist/glpk.wasm',
-              to: './.next/server/pages/api/glpk.wasm',
+              from: path.join(__dirname, 'node_modules', 'glpk.js', 'dist', 'glpk.js'),
+              to: path.join(__dirname, '.next', 'server', 'chunks', 'glpk.js'),
+            },
+            {
+              from: path.join(__dirname, 'node_modules', 'glpk.js', 'dist', 'glpk.wasm'),
+              to: path.join(__dirname, '.next', 'server', 'chunks', 'glpk.wasm'),
             },
           ],
         })
       );
     }
-    // ...
+
     return config;
   },
 };
