@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "lineup-optimizer",
-  "framework": "node",
   "builds": [
     {
       "src": "server.js",
@@ -14,8 +13,12 @@
       "dest": "/server.js"
     },
     {
-      "src": ".*",
+      "src": "/",
       "dest": "/index.html"
+    },
+    {
+      "src": "/(.*).(js|css)",
+      "dest": "/$1.$2"
     }
   ]
 }
