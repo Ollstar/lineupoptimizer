@@ -19,11 +19,11 @@ The NBA Lineup Optimizer is a web application that allows users to calculate the
    cd lineupoptimzer
 4. Install the required dependencies:
    npm install
-5. Edit the `.env` file in the project root directory with the following content:
-   WEB_URL=your_website_url_here
+5. Create a `.env` file in the project root directory with the following content:
+   WEB_URL=your_website_url_here (Use http://localhost:3000 for local)
    Replace `your_website_url_here` with the URL of your website. This is required for the application to work properly. (Use local)
 6. Start the server:
-   npm start
+   npm run dev
 7. Open your web browser and visit `http://localhost:3000`. The application should now be running.
 
 ## Usage

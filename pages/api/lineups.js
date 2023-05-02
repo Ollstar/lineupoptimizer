@@ -13,9 +13,9 @@ export default async function handler(req, res) {
     res.status(500).send('Internal Server Error');
   }
 };
-
 const GLPK = require("glpk.js");
 const glpk = GLPK();
+
 
 function calculateOptimalLineup(players) {
   const lineupSize = 8;
