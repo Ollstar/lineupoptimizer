@@ -6,7 +6,7 @@ module.exports = {
     
     config.resolve.alias = {
       ...config.resolve.alias,
-      glpk: path.resolve(__dirname, 'node_modules/glpk.js/dist/glpk.wasm'),
+      glpk: path.join(__dirname, 'node_modules', 'glpk.js', 'dist', 'glpk.wasm'),
     };
     return config;
   },
